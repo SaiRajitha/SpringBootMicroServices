@@ -1,0 +1,28 @@
+package com.project1.rest.webservices.restfulwebservices.helloWorld;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+// Controller
+@RestController
+public class HelloWorldcontroller {
+	
+	@Autowired
+	private MessageSource messageSource;
+	
+	// REST
+	// URI - hello-world
+	// GET Method "helloWorld"
+	// @RequestMapping(method = RequestMethod.GET , path = "/hello-world")
+	@GetMapping(path = "/hello-world")
+	public String helloWorld() {
+		return "Hello World!";
+	}
+	
+	@GetMapping(path = "/hello-world-i18n")
+	public String helloWorldInternationalized() {
+		return "Hello World!";
+	}
+}

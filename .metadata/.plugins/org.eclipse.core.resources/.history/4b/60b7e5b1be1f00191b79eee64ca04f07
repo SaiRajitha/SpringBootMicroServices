@@ -1,0 +1,60 @@
+package com.project1.rest.webservices.restfulwebservices.customer;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+// component
+@Component
+public class CustomerDaoService {
+	private static List<Customer> customers = new ArrayList<Customer>();
+	private static int customersCount = 4;
+	
+	static {
+		customers.add(new Customer(1, "Ann", new Date()));
+		customers.add(new Customer(2, "Anna", new Date()));
+		customers.add(new Customer(3, "Anne", new Date()));
+		customers.add(new Customer(4, "Anny", new Date()));
+	}
+	
+	// find all
+	public List<Customer> findAll(){
+		return customers;
+	}
+	
+	// find specific customer
+	public Customer findOne(int id) {
+		for(Customer customer: customers) {
+			if(customer.getId() == id) {
+				return customer;
+			}
+		}
+		return null;
+	}
+	
+	// save customer
+	public Customer save(Customer customer) {
+		if(customer.getId() == null) {
+			customer.setId(++customersCount);
+		}
+		customers.add(customer);
+		return customer;
+	}
+	
+	//delete by id
+	public Customer delete(Integer id) {
+		Iterator<Customer> iterator = customers.iterator();
+		while(iterator.hasNext()) {
+			Customer customer = iterator.next()
+			if(customer.getId() == id) {
+				iterator.remove();
+				return customer;
+			}
+		}
+		return null;
+	}
+	
+}

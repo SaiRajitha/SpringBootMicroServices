@@ -1,0 +1,59 @@
+package com.project1.rest.webservices.restfulwebservices.jpa;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+// component
+@Component
+public class UserDaoService {
+	private static List<User> Users = new ArrayList<User>();
+	private static int UsersCount = 4;
+	
+	static {
+		Users.add(new User(1, "Ann", new Date()));
+		Users.add(new User(2, "Anna", new Date()));
+		Users.add(new User(3, "Anne", new Date()));
+		Users.add(new User(4, "Anny", new Date()));
+	}
+	
+	// find all
+	public List<User> findAll(){
+		return Users;
+	}
+	
+	// find specific User
+	public User findOne(int id) {
+		for(User User: Users) {
+			if(User.getId() == id) {
+				return User;
+			}
+		}
+		return null;
+	}
+	
+	// save User
+	public User save(User User) {
+		if(User.getId() == null) {
+			User.setId(++UsersCount);
+		}
+		Users.add(User);
+		return User;
+	}
+	
+	//delete by id
+	public User delete(Integer id) {
+		Iterator<User> iterator = Users.iterator();
+		while(iterator.hasNext()) {
+			User User = iterator.next();
+			if(User.getId() == id) {
+				iterator.remove();
+				return User;
+			}
+		}
+		return null;
+	}
+}

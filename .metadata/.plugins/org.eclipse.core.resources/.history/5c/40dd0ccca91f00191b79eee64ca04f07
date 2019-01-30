@@ -1,0 +1,10 @@
+package com.project1.rest.webservices.restfulwebservices.customer;
+
+public class PostResource {
+
+	// retrieve all posts for a Customer
+	
+	// create a post for a Customer
+	
+	// retrieve details of a post
+}

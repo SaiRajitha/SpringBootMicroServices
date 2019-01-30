@@ -1,0 +1,52 @@
+package com.project1.rest.webservices.restfulwebservices.versioning;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class PersonVersioningController {
+
+	// Basic Versioning
+	@GetMapping("/v1/person")
+	public PersonV1 person1Details() {
+		return new PersonV1("Abcd efg");
+	}
+
+	@GetMapping("/v2/person")
+	public PersonV2 personv2Details() {
+		return new PersonV2(new Name("Newwwwwwww", "Name"));
+	}
+
+	// Using params attribute
+	@GetMapping(value = "/person/param", params = "version=1")
+	public PersonV1 person1DetailsParam() {
+		return new PersonV1("Abcd efg");
+	}
+
+	@GetMapping(value = "/person/param", params= "version=2")
+	public PersonV2 personv2DetailsParam() {
+		return new PersonV2(new Name("New", "Name"));
+	}
+
+	// Using header in request
+	@GetMapping(value = "/person/header", headers = "X-API-VERSION=1")
+	public PersonV1 person1DetailsHeader() {
+		return new PersonV1("Abcd efg");
+	}
+
+	@GetMapping(value = "/person/header", headers= "X-API-VERSION=2")
+	public PersonV2 personv2DetailsHeader() {
+		return new PersonV2(new Name("New", "Name"));
+	}
+
+	// Using produces
+	@GetMapping(value = "/person/header1", headers = "X-API-VERSION=1")
+	public PersonV1 person1DetailsProduces() {
+		return new PersonV1("Abcd efg");
+	}
+
+	@GetMapping(value = "/person/header1", headers= "X-API-VERSION=2")
+	public PersonV2 personv2DetailsProduces() {
+		return new PersonV2(new Name("New", "Name"));
+	}
+}

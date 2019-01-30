@@ -1,0 +1,9 @@
+package com.project1.rest.webservices.restfulwebservices.customer;
+
+public class Post {
+	private Integer id;
+	private String name;
+	private String details;
+	
+	
+}

@@ -1,0 +1,11 @@
+package com.project2.microservices.limitsservice;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class LimitsConfigurationController {
+	
+	public LimitsConfiguration retrieveLimitsFromConfigurations() {
+		
+	}
+}

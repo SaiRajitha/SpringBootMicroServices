@@ -1,0 +1,18 @@
+package com.project1.rest.webservices.restfulwebservices.customer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+//component
+@Component
+public class PostDaoService {
+	
+	private static List<Post> posts = new ArrayList<Post>();
+	static {
+		posts.add(new Post(1, "first post", "This is first post", 1));
+		posts.add(new Post(2, "second post", "This is second post", 1));
+		posts.add(new Post(3, "first post....", "This is first post...", 2));
+	}
+}

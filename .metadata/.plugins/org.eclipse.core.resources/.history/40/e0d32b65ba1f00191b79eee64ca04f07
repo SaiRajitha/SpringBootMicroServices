@@ -1,0 +1,48 @@
+package com.project1.rest.webservices.restfulwebservices.customer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+//component
+@Component
+public class PostDaoService {
+	
+	private static List<Post> posts = new ArrayList<Post>();
+	private Integer postCount = 4;
+	static {
+		posts.add(new Post(1, "first post", "This is first post", 1));
+		posts.add(new Post(2, "second post", "This is second post", 1));
+		posts.add(new Post(3, "first post....", "This is first post...", 2));
+	}
+	
+	// create post
+	public Post create(Post post) {
+		if(post.getId() == null) {
+			post.setId(++postCount);
+		}
+		posts.add(post);
+		return post;
+	}
+	// retrieve posts of a customer
+	public List<Post> retrievePosts(Integer customerId) {
+		List<Post> custPosts = posts;
+		for(Post post: posts) {
+			if(post.getCustomerId() == customerId) {
+				custPosts.add(post);
+			}
+		}
+		return posts;
+	}
+	
+	// retrieve details of a post
+	public String retrivePostDetails(Integer id) {
+		for(Post post: posts) {
+			if(post.getId() == id) {
+				return post.getDetails();
+			}
+		}
+		return null;
+	}
+}

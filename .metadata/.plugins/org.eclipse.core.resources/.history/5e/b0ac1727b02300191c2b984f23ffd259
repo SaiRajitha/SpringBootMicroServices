@@ -1,0 +1,5 @@
+package com.project1.rest.webservices.restfulwebservices.jpa;
+
+public class User {
+
+}
