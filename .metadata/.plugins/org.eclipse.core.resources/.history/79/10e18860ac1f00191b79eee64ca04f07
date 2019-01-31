@@ -1,9 +1,0 @@
-package com.project1.rest.webservices.restfulwebservices.customer;
-
-import org.springframework.stereotype.Component;
-
-//component
-@Component
-public class PostDaoService {
-	
-}

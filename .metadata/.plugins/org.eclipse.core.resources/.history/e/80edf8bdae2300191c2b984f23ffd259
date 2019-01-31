@@ -1,6 +1,0 @@
-#logging.level.org.springframework = debug
-logging.level.org.springframework = info
-spring.jackson.serializarion.write-dates-as-timestamps = false
-spring.messages.basename = messages
-management.endpoints.web.exposure.include = *
-se
