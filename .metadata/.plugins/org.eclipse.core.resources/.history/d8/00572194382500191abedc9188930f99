@@ -2,4 +2,4 @@ server.port=8888
 spring.application.name=spring-cloud-config-server
 
 #spring.cloud.config.server.git.uri = file:///D:/spring-workspace/git-local-config-repo
-spring.cloud.config.server.git.uri = https://github.com/SaiRajitha/SpringBootMicroServices/blob/master/git-local-config-repo1/limits-services.properties
+spring.cloud.config.server.git.uri = https://github.com/SaiRajitha/git-local-config-repo/blob/master/limits-services.properties
